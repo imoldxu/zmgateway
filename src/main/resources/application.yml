@@ -6,7 +6,8 @@ spring:
     name: gateway
   cloud:
     consul:
-      host: 192.168.6.103
+      #host: 192.168.6.103  #dev
+      host: 127.0.0.1        
       port: 8500
       discovery:
         healthCheckInterval: 15s
