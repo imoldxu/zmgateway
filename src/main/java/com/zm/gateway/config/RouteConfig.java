@@ -22,8 +22,8 @@ public class RouteConfig {
 	@Bean
 	public RouterFunction<ServerResponse> consulFunRouterFunction() {
         RouterFunction<ServerResponse> route = RouterFunctions.route(
-                RequestPredicates.path("/test"),
-                request -> ServerResponse.ok().body(BodyInserters.fromObject("hello")));
+                RequestPredicates.path("/*/internal/**"),
+                request -> ServerResponse.ok().body(BodyInserters.fromObject("sorry, the api can not be accessed")));
         return route;
     }
 	
