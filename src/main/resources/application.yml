@@ -2,10 +2,10 @@ server:
   port: 443
   ssl:    
     enabled: true
-    key-alias: zmgateway
-    key-store-password: 820401
-    key-store: classpath:zmgatewaykeystore.p12
-    key-store-type: PKCS12
+    #key-alias: zmgateway
+    key-store-password: 528k417q31b32
+    key-store: classpath:www.zkhz.xyz.jks
+    key-store-type: JKS
 
 spring:
   application:

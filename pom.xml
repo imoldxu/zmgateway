@@ -119,6 +119,7 @@
                     <include>**/application*.yaml</include>
                     <include>**/application*.properties</include>
                     <include>**/*.p12</include>
+                    <include>**/*.jks</include>
                 </includes>
             </resource>
             <resource>
@@ -145,6 +146,7 @@
 						<nonFilteredFileExtension>pem</nonFilteredFileExtension>
 						<nonFilteredFileExtension>pfx</nonFilteredFileExtension>
 						<nonFilteredFileExtension>p12</nonFilteredFileExtension>
+						<nonFilteredFileExtension>jks</nonFilteredFileExtension>
 					</nonFilteredFileExtensions>
 				</configuration>
 			</plugin>
