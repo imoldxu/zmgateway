@@ -4,6 +4,8 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.gateway.discovery.DiscoveryClientRouteDefinitionLocator;
 import org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties;
 import org.springframework.cloud.gateway.route.RouteDefinitionLocator;
+import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -23,9 +25,17 @@ public class RouteConfig {
 	public RouterFunction<ServerResponse> consulFunRouterFunction() {
         RouterFunction<ServerResponse> route = RouterFunctions.route(
                 RequestPredicates.path("/*/internal/**"),
-                request -> ServerResponse.ok().body(BodyInserters.fromObject("sorry, the api can not be accessed")));
+                request -> ServerResponse.ok().body(BodyInserters.fromObject("sorry, the api can not be accessed")));	
         return route;
     }
+	
+	@Bean
+	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+	    return builder.routes()
+	            .route("oss_sign", r -> r.path("/oss")
+	                    .uri("http://127.0.0.1:9310/"))
+	            .build();
+	}
 	
 	/**
 	 * 与服务发现结合，配置路由
